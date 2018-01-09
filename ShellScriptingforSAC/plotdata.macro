@@ -1,0 +1,24 @@
+* this sac macro will loop over three times and read 
+* same component of all stations and using sss plot a record  section
+
+* Initiate the loop
+do comp list N E Z
+   read *$comp$*.SAC
+
+* Turn off the quick dirty plot
+   qdp off
+
+* open Signal Stacking Subprocess
+   sss
+
+* Use the plotrecordsection function to show the different phases of the signal
+   plotrecordsection 
+
+* Get out of the subprocess
+  quitsub
+
+* save the plot
+  saveimg $comp$.pdf
+
+* end the loop
+enddo
